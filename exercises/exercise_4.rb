@@ -12,7 +12,7 @@ s2 = Store.create(name: "Whistler", annual_revenue: 1900000, mens_apparel: true,
 s3 = Store.create(name: "Yaletown", annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
 
 @mens_stores = Store.where(mens_apparel: true)
-@womens_stores = Store.where(womens_apparel: true).where("annual_revenue < 1000000")
+@womens_stores = Store.where("womens_apparel = true and annual_revenue < 1000000")
 
 @mens_stores.each do |store|
   puts store.name, store.annual_revenue
